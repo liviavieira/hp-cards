@@ -18,7 +18,7 @@ export const Profile = styled.figure`
 `;
 
 export const Picture = styled.div`
-  width: 20rem;
+  max-width: 20rem;
   height: 30rem;
   border-radius: 10px;
   overflow: hidden;
