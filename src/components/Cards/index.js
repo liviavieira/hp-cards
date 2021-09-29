@@ -20,7 +20,7 @@ export default function Cards() {
     dots: true,
     arrows: true,
     infinite: true,
-    autoplay: true,
+    // autoplay: true,
     draggable: true,
     accessibility: true,
     speed: 1000,

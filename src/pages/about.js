@@ -1,12 +1,11 @@
 import React from "react";
 
 import Layout from "../components/Layout";
-import Cards from "../components/Cards";
 
-export default function Index() {
+export default function About() {
   return (
     <Layout>
-      <Cards/>
+      <h1>ABOUT</h1>
     </Layout>
   )
 };
