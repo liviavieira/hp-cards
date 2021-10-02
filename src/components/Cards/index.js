@@ -9,23 +9,32 @@ import "slick-carousel/slick/slick-theme.css";
 export default function Cards() {
 
   const [list, setList] = useState([])
+  const [zoom, setZoom] = useState(false)
+  const [reveal, setReveal] = useState(false)
 
   useEffect(() => {
     Api.get()
     .then(response => setList(response.data))
-    console.log(Api.get())
   }, [])
+
+  function handleZoom(img) {
+    setZoom(zoom === false ? img : false)
+  }
+
+  function handleReveal(card) {
+    setReveal(reveal === false ? card : false)
+  }
   
   const settings = {
     dots: true,
     arrows: true,
     infinite: true,
-    // autoplay: true,
+    autoplay: true,
     draggable: true,
+    centerMode: true,
     accessibility: true,
-    speed: 1000,
+    speed: 1500,
     slidesToShow: 3,
-    slidesToScroll: 3,
   };
 
   return (
@@ -33,27 +42,44 @@ export default function Cards() {
       <Slider {...settings}>
         {list.map((character, i) => (
           <S.Content key={i}>
-            <h3>{character.name}</h3>
-            <h4>
-              {character.hogwartsStaff && 'Hogwarts Staff'}
-              {character.hogwartsStudent && 'Hogwarts Student'}
-            </h4>
-            <p>{character.alive ? 'Alive' : 'Dead'}</p>
+            <S.Info>
+              <S.Name>{character.name}</S.Name>
+              <S.Status>
+                <p>
+                  {character.hogwartsStaff && 'Hogwarts Staff'}
+                  {character.hogwartsStudent && 'Hogwarts Student'}
+                </p>
+                <p>{character.alive ? 'Alive' : 'Dead'}</p>
+              </S.Status>
+            </S.Info>
 
             <S.Profile>
               <S.Picture>
                 <S.PictureImg
+                  zoom={zoom === i}
                   src={character.image}
-                  alt={`Retrato de ${character.name}`}
+                  alt={`Retrato do personagem ${character.name}`}
+                  className="picture-img"
                 />
+                <S.ImgGradient className="img-gradient"/>
+
+                <S.Magnifier
+                  onClick={() => handleZoom(i)}
+                  className="magnifier"
+                >🔍</S.Magnifier>
               </S.Picture>
-              <S.Info>
+              <S.Details reveal={reveal === i}>
+                <S.RevealBtn 
+                  reveal={reveal}
+                  onClick={() => handleReveal(i)}
+                  className="reveal-btn"
+                >ᐃ</S.RevealBtn>
                 <p>Year of birth: {character.yearOfBirth ? character.yearOfBirth : 'Unknown'}</p>
                 <p>Species: {character.species}</p>
                 <p>Ancestry: {character.ancestry ? character.ancestry : 'Unknown'}</p>
                 <p>House: {character.house ? character.house : 'Unknown'}</p>
                 <p>Patronus: {character.patronus ? character.patronus : 'Unknown'}</p>
-              </S.Info>
+              </S.Details>
             </S.Profile>
           </S.Content>
         ))}
