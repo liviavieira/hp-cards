@@ -44,7 +44,7 @@ export default function Cards() {
           {list.map((character, i) => (
             <S.Content key={i}>
               <S.Info>
-                <S.Name>{character.name}</S.Name>
+                <S.Name className="name">{character.name}</S.Name>
                 <S.Status>
                   <p>
                     {character.hogwartsStaff && 'Hogwarts Staff'}
