@@ -33,7 +33,7 @@ export const Content = styled.div`
   text-align: center;
   border: 1px solid #fff;
 
-  &:hover ${Name}:after {
+  &:hover .name:after {
     width: 5rem;
     background: #fff;
   }
