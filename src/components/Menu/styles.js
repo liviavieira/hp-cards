@@ -1,8 +1,7 @@
+import { Link as GatsbyLink } from "gatsby";
 import styled from "styled-components";
 
-import { Link as GatsbyLink } from "gatsby";
-
-export const Header = styled.header`
+export const Menu = styled.div`
   position: fixed;
   top: 0;
   left: 0;
