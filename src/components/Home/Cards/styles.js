@@ -15,16 +15,17 @@ export const bouncing = keyframes`
 
 
 
-export const Wrapper = styled.section`
+export const Container = styled.section`
+  background: #111;
+`;
+
+export const Wrapper = styled.div`
   margin: 0 auto;
+  padding: 5rem 0;
   width: 80%;
 `;
 
 export const Content = styled.div`
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   margin: 0 1rem;
   padding: 1rem .5rem;
   color: #fff;
@@ -76,6 +77,7 @@ export const Status = styled.div`
 
 export const Profile = styled.figure`
   position: relative;
+  margin: 0 auto;
   width: 18rem;
   border-radius: 10px;
   border-top: 1.5rem solid #444;
@@ -109,7 +111,7 @@ export const ImgGradient = styled.div`
   height: 100%;
   background-image: linear-gradient(
     180deg, 
-    rgba(0, 0, 0, 0) 20%, 
+    rgba(0, 0, 0, 0) 0%, 
     rgba(0, 0, 0, 0.85) 100%);
   transition: .4s;
 `;
