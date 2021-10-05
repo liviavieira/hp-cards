@@ -3,7 +3,7 @@ import * as S from "./styles";
 
 export default function Menu() {
   return (
-    <S.Header>
+    <S.Menu>
       <S.Wrapper>
         <S.Link to="/">Home</S.Link>
         <S.NavBar>
@@ -13,6 +13,6 @@ export default function Menu() {
           <S.Link to="/contact">Contato</S.Link>
         </S.NavBar>
       </S.Wrapper>
-    </S.Header>
+    </S.Menu>
   )
 }
